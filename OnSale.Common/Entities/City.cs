@@ -19,7 +19,7 @@ namespace OnSale.Common.Entities
 
         [JsonIgnore]
         [NotMapped]
-        public int IdDeparment { get; set; }
+        public int IdDepartment { get; set; }
 
     }
 }

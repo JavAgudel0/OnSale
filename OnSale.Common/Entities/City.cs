@@ -11,7 +11,7 @@ namespace OnSale.Common.Entities
     public class City
     {
         public int Id { get; set; }
-        [MaxLength(50,ErrorMessage = "La longitud del {0} no debe ser mayor a {1}")]
+        [MaxLength(50, ErrorMessage = "The filed {0} must contain less than {1} character")]
         [Required]
 
 

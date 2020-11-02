@@ -34,10 +34,10 @@ namespace OnSale.Common.Entities
         [DisplayName("Product Images Number")]
         public int ProductImagesNumber => ProductImages == null ? 0 : ProductImages.Count;
 
-        //TODO: Pending to put the correct paths
+        
         [Display(Name = "Image")]
         public string ImageFullPath => ProductImages == null || ProductImages.Count == 0
-            ? $"https://localhost:44322/images/noimage.jpg"
+            ? $"https://onsalejav.azurewebsites.net/noimage.jpg"
             : ProductImages.FirstOrDefault().ImageFullPath;
     }
 

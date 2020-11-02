@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using OnSale.Web.Data.Entities;
+using OnSale.Web.Models;
 
 namespace OnSale.Web.Helpers
 {
@@ -15,6 +16,13 @@ namespace OnSale.Web.Helpers
         Task AddUserToRoleAsync(User user, string roleName);
 
         Task<bool> IsUserInRoleAsync(User user, string roleName);
+
+        Task<SignInResult> LoginAsync(LoginViewModel model);
+
+        Task LogoutAsync();
+
+        Task<SignInResult> ValidatePasswordAsync(User user, string password);
+
     }
 
 }

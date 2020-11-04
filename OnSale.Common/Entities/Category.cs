@@ -20,6 +20,7 @@ namespace OnSale.Common.Entities
         [Display(Name = "Image")]
         public string ImageFullPath => ImageId == Guid.Empty
             ? $"https://onsalejav.azurewebsites.net/noimage.jpg"
+
             : $"https://onsale2.blob.core.windows.net/categories/{ImageId}";
     }
 

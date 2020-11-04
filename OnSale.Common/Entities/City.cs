@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
-using Newtonsoft.Json;
 
 namespace OnSale.Common.Entities
 {
@@ -20,6 +16,12 @@ namespace OnSale.Common.Entities
         [JsonIgnore]
         [NotMapped]
         public int IdDepartment { get; set; }
+
+
+        //Una ciudad pertenece a un departamento
+        [JsonIgnore]
+        public Department Department { get; set; }
+
 
     }
 }

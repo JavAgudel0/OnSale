@@ -24,6 +24,12 @@ namespace OnSale.Common.Entities
         [JsonIgnore]
         [NotMapped]
         public int IdCountry { get; set; }
+
+
+        //un departamento pertenece a un pais
+        [JsonIgnore]
+        public Country Country { get; set; }
+
     }
 }
 

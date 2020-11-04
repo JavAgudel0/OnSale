@@ -1,5 +1,4 @@
-﻿using System.Text;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -11,6 +10,7 @@ using Microsoft.IdentityModel.Tokens;
 using OnSale.Web.Data;
 using OnSale.Web.Data.Entities;
 using OnSale.Web.Helpers;
+using System.Text;
 
 namespace OnSale.Web
 {
@@ -61,6 +61,12 @@ namespace OnSale.Web
                 cfg.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
 
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.LoginPath = "/Account/NotAuthorized";
+                options.AccessDeniedPath = "/Account/NotAuthorized";
+            });
+
 
             services.AddTransient<SeedDb>();
             services.AddScoped<IBlobHelper, BlobHelper>();
@@ -85,6 +91,7 @@ namespace OnSale.Web
                 app.UseHsts();
             }
 
+            app.UseStatusCodePagesWithReExecute("/error/{0}");
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseAuthentication();
